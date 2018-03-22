@@ -1,21 +1,3 @@
-// The local ice cream shop keeps track of
-// how much ice cream they sell versus the noon temperature on that day.
-// Here are their figures for the last 12 days
-// var data = [
-//   [14.2, 215],
-//   [16.4, 325],
-//   [11.9, 185],
-//   [15.2, 332],
-//   [18.5, 406],
-//   [22.1, 522],
-//   [19.4, 412],
-//   [25.1, 614],
-//   [23.4, 544],
-//   [18.1, 421],
-//   [22.6, 445],
-//   [17.2, 408],
-// ];
-
 var data = [
   [400, 200],
   [210, 140],
@@ -57,7 +39,7 @@ svg.selectAll('text')
   .enter()
   .append('text')
   .text(function(d) {
-    return d.join(', ')
+    return d.join(',')
   })
   .attr('font-size', 12)
   .attr('x', function(d) {
