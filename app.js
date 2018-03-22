@@ -15,7 +15,7 @@ var svg = d3.select("#chart")
   .attr("width", chart_width)
   .attr("height", chart_height)
 
-d3.json('data/us.json', function(data) {
+d3.json('data/test.json', function(data) {
   svg.selectAll('path')
   .data(data.features)
   .enter()
