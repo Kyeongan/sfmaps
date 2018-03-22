@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>When Next Bus Come</title>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://d3js.org/d3-array.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+        <script type="text/javascript">
+            var width=960, height=1160;
+            var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+            var projection = d3.geoAlbersUsa()
+              // .scale([chart_width])
+              // .translate([chart_width/2, chart_height/2]);
+
+            var path = d3.geoPath(projection);
+
+
+            d3.json("sfmaps/us.json", function(error, data) {
+                if(error) return console.error(error);
+                console.log(data);
+
+                svg.append("path")
+                    .data(data)
+                    // .attr("d", d3.geo.path().projection(d3.geo.mercator()));
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <div id="chart"></div>
+    </body>
+</html>
