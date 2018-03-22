@@ -16,6 +16,7 @@ console.log(data);
 var chart_width = 800;
 var chart_height = 400;
 var bar_padding = 5;
+
 var svg = d3.select('#chart')
   .append('svg')
   .attr('width', chart_width)
