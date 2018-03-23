@@ -21,6 +21,7 @@ data.forEach(function(e, i) {
     data[i].date = time_parse(e.date);
 });
 
+
 // Create SVG Element
 var svg = d3.select('#chart')
     .append('svg')
