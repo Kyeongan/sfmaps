@@ -1,14 +1,35 @@
-#chart{
+body {
+  font-family: sans-serif;
+}
+
+#chart {
   width: 800px;
   height: 400px;
   background-color: #f7f7f7;
   margin: 25px auto;
 }
 
-.bar{
+.bar {
   display: inline-block;
   width: 20px;
   height: 300px;
   background-color: #71adde;
   margin-right: 5px;
+}
+
+.x-axis path .x-axis line {
+  shape-rendering: crespEdges;
+}
+
+.x-axis text {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+.y-axis path .y-axis line {
+  shape-rendering: crespEdges;
+}
+
+.y-axis text {
+  font-family: sans-serif;
+  font-weight: bold;
 }
