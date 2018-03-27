@@ -22,13 +22,13 @@ var svg = d3.select('#chart')
 // Create Scales
 var x_scale = d3.scaleLinear()
     .domain([0, d3.max(data, function(d) {
-        return d[0];
+        return d[0]+100;
     })])
     .range([padding, chart_width - padding]);
 
 var y_scale = d3.scaleLinear()
     .domain([0, d3.max(data, function(d) {
-        return d[1];
+        return d[1]+100;
     })])
     .range([chart_height - padding, padding]);
 
@@ -62,11 +62,18 @@ svg.selectAll('circle')
     .attr('fill', '#BA8D1E');
 
 // Create Axis
-var x_axis = d3.axisBottom()
-    .scale(x_scale);
+var x_axis = d3.axisBottom(x_scale);
+var y_axis = d3.axisLeft(y_scale);
 
 svg.append('g')
-    .call( x_axis );
+  .attr('class', 'x-axis')
+  .attr('transform', 'translate(' + 0 + ',' + (chart_height - padding) + ')')
+  .call(x_axis);
+
+svg.append('g')
+  .attr('class', 'y-axis')
+  .attr('transform', 'translate(' + (padding) + ',' + 0 + ')')
+  .call(y_axis);
 
 // Create Labels
 svg.append('g').selectAll('text')
