@@ -22,13 +22,13 @@ var svg = d3.select('#chart')
 // Create Scales
 var x_scale = d3.scaleLinear()
     .domain([0, d3.max(data, function(d) {
-        return d[0]+100;
+        return d[0]+padding;
     })])
     .range([padding, chart_width - padding]);
 
 var y_scale = d3.scaleLinear()
     .domain([0, d3.max(data, function(d) {
-        return d[1]+100;
+        return d[1]+padding;
     })])
     .range([chart_height - padding, padding]);
 
@@ -62,8 +62,13 @@ svg.selectAll('circle')
     .attr('fill', '#BA8D1E');
 
 // Create Axis
-var x_axis = d3.axisBottom(x_scale);
-var y_axis = d3.axisLeft(y_scale);
+var x_axis = d3.axisBottom(x_scale)
+  // .tickValues([0, 150, 250, 600, 700]);  # Let D3 handle the ticks
+var y_axis = d3.axisLeft(y_scale)
+  .ticks(5)
+  // .tickFormat(function(d){
+  //   return d + '%'
+  // });
 
 svg.append('g')
   .attr('class', 'x-axis')
