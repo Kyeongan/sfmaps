@@ -12,3 +12,8 @@
   background-color: #71adde;
   margin-right: 5px;
 }
+
+button{
+    display: block;
+    margin: 0 auto;
+}
