@@ -49,6 +49,12 @@ svg.selectAll('rect')
     })
     .attr('fill', '#71adde');
 
+// Create d3.axis()
+// var y_axis = d3.axisLeft(y_scale);
+// svg.append('g')
+//     .attr('class', 'y-axis')
+//     .attr('transform', 'translate(' + 50 + ',' + 0 + ')')
+//     .call(y_axis);
 
 // Create Labels
 svg.selectAll('text')
@@ -71,8 +77,16 @@ svg.selectAll('text')
 // Events
 d3.select('button').on('click', function() {
     data.reverse();
+    data[0]=100;
+    y_scale.domain([0, d3.max(data)])
     svg.selectAll('rect')
         .data(data)
+        .transition()
+        .delay(function (d, i) {
+            return i / data.length * 1000;
+        })
+        .duration(1000)
+        .ease(d3.easeElasticOut)
         .attr('y', function(d) {
             return chart_height - y_scale(d);
         })
@@ -81,6 +95,12 @@ d3.select('button').on('click', function() {
         })
     svg.selectAll('text')
         .data(data)
+        .transition()
+        .delay(function (d, i) {
+            return i / data.length * 1000;
+        })
+        .duration(1000)
+        .ease(d3.easeElasticOut)
         .text(function(d) {
             return d
         })
